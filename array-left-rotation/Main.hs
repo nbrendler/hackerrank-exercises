@@ -16,12 +16,3 @@ main = do
     a_temp <- getLine
     let a = map read $ words a_temp :: [Int]
     putStrLn $ intercalate " " $ map show $ rotate (k `mod` n) a
-
-getMultipleLines :: Int -> IO [String]
-getMultipleLines n
-    | n <= 0 = return []
-    | otherwise = do          
-        x <- getLine         
-        xs <- getMultipleLines (n-1)    
-        let ret = (x:xs)    
-        return ret     
